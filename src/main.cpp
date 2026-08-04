@@ -24,10 +24,14 @@
 Servo index_servo;
 Servo ring_servo;
 Servo middle_servo;
+Servo pinky_servo;
+Servo thumb1_servo;
 
 const int index_ServoPin = 8; // orange
 const int ring_ServoPin = 9; // blue
 const int middle_ServoPin = 7; // green
+const int pinky_ServoPin = 6; // yellow
+const int thumb1_ServoPin = 5; // blue
 
 
 void setup() {
@@ -35,24 +39,31 @@ void setup() {
   // index_servo.write(0); // fingers up
   // ring_servo.attach(ring_ServoPin);
   // ring_servo.write(0);
-  middle_servo.attach(middle_ServoPin);
-  middle_servo.write(0);
+  // middle_servo.attach(middle_ServoPin);
+  // middle_servo.write(0);
+  pinky_servo.attach(pinky_ServoPin);
+  pinky_servo.write(0);
+  // thumb1_servo.attach(thumb1_ServoPin);
+  // thumb1_servo.write(0);
 }
 
 void loop() {
   // index_servo.write(10);
-  // ring_servo.write(0);
-  // delay(1000);
+  //ring_servo.write(0);
+  pinky_servo.write(0);
+  delay(1000);
   // index_servo.write(90);
-  // ring_servo.write(90);
-  // delay(1000);
+  //ring_servo.write(90);
+  //delay(1000);
   // index_servo.write(180);
-  // ring_servo.write(180);
+  //ring_servo.write(180);
+  pinky_servo.write(180);
+  delay(1000);
+  // middle_servo.write(0);
   // delay(1000);
-  middle_servo.write(0);
+  // middle_servo.write(90);
+  pinky_servo.write(60);
   delay(1000);
-  middle_servo.write(90);
-  delay(1000);
-  middle_servo.write(180);
-  delay(1000);
+  // middle_servo.write(180);
+  // delay(1000);
 }
