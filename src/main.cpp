@@ -85,6 +85,15 @@ void setup() {
 
   Serial.begin(9600);
 
+  thumb1_servo.attach(thumb1_ServoPin);
+  index_servo.attach(index_ServoPin);
+  middle_servo.attach(middle_ServoPin);
+  ring_servo.attach(ring_ServoPin);
+  pinky_servo.attach(pinky_ServoPin);
+ 
+}
+
+void loop() {
   Serial.println("Select an option by typing the number:");
   Serial.println("1. Open hand");
   Serial.println("2. Close hand");
@@ -95,7 +104,8 @@ void setup() {
 
   int option = Serial.parseInt();
 
-  Serial.println("You selected option: " + option);
+  Serial.println("You selected option: ");
+  Serial.println(option);
 
   switch(option) {
     case 1:
@@ -103,6 +113,9 @@ void setup() {
       break;
     case 2:
       handclose();
+      break;
+    case 3:
+      // camera detection
       break;
     default:
       Serial.println("Invalid option.");
@@ -124,8 +137,4 @@ void handclose() {
   middle_servo.write(180);
   ring_servo.write(180);
   pinky_servo.write(180);
-}
-
-void loop() {
-
 }
