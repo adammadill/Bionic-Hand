@@ -53,7 +53,7 @@ while True:
         
 
         # format
-        command = f"{servo_thumb}, {servo_index}, {servo_middle}, {servo_ring}, {servo_pinky}\n"
+        command = f"{servo_thumb}, {servo_index}, {servo_middle}, {servo_ring}, {servo_pinky}!" # send as string because the numbers have to be telled apart eg. cant send as 09045180
         arduino.write(command.encode('utf-8'))
 
     cv2.imshow("Hand Tracker Image", img)
