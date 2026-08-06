@@ -81,6 +81,8 @@ void handopen();
 
 void handclose();
 
+void camdetect();
+
 void setup() {
 
   Serial.begin(9600);
@@ -90,58 +92,47 @@ void setup() {
   middle_servo.attach(middle_ServoPin);
   ring_servo.attach(ring_ServoPin);
   pinky_servo.attach(pinky_ServoPin);
- 
-}
 
-void loop() {
-  Serial.println("Select an option by typing the number:");
-  Serial.println("1. Open hand");
-  Serial.println("2. Close hand");
-
-  while (Serial.available() == 0) {
-    // Wait for user input
-  }
-
-  int option = Serial.parseInt();
-
-  Serial.println("You selected option: ");
-  Serial.println(option);
-
-  switch(option) {
-    
-    case 1:
-      handopen();
-      break;
-    case 2:
-      handclose();
-      break;
-    case 3:
-      camdetect(); 
-      break;
-
-    default:
-      Serial.println("Invalid option.");
-      break;
-  }
-}
-
-void handopen() {
   thumb1_servo.write(0);
   index_servo.write(0);
   middle_servo.write(0);
   ring_servo.write(0);
   pinky_servo.write(0);
+ 
 }
 
-void handclose() {
-  thumb1_servo.write(180);
-  index_servo.write(180);
-  middle_servo.write(180);
-  ring_servo.write(180);
-  pinky_servo.write(180);
-}
+void loop() {
+  // Serial.println("Select an option by typing the number:");
+  // Serial.println("1. Open hand");
+  // Serial.println("2. Close hand");
+  // Serial.println("3. Cam detect");
 
-void camdetect() {
+  // while (Serial.available() == 0) {
+  //   // Wait for user input
+  // }
+
+  // int option = Serial.parseInt();
+
+  // Serial.println("You selected option: ");
+  // Serial.println(option);
+
+  // switch(option) {
+
+  //   case 1:
+  //     handopen();
+  //     break;
+  //   case 2:
+  //     handclose();
+  //     break;
+  //   case 3:
+  //     camdetect(); 
+  //     break;
+
+  //   default:
+  //     Serial.println("Invalid option.");
+  //     break;
+  // }
+
   if (Serial.available() > 0) {
     
     int thumb1_val = Serial.parseInt(); // Serial.parseInt() reads full number until comma, then moves to next Serial.parseInt()
@@ -159,3 +150,38 @@ void camdetect() {
     }
   }
 }
+
+// void handopen() {
+//   thumb1_servo.write(0);
+//   index_servo.write(0);
+//   middle_servo.write(0);
+//   ring_servo.write(0);
+//   pinky_servo.write(0);
+// }
+
+// void handclose() {
+//   thumb1_servo.write(180);
+//   index_servo.write(180);
+//   middle_servo.write(180);
+//   ring_servo.write(180);
+//   pinky_servo.write(180);
+// }
+
+// void camdetect() {
+//   if (Serial.available() > 0) {
+    
+//     int thumb1_val = Serial.parseInt(); // Serial.parseInt() reads full number until comma, then moves to next Serial.parseInt()
+//     int index_val = Serial.parseInt();
+//     int middle_val = Serial.parseInt();
+//     int ring_val = Serial.parseInt();
+//     int pinky_val = Serial.parseInt();
+
+//     if (Serial.read() == '!') { // ! means end}
+//       thumb1_servo.write(thumb1_val);
+//       index_servo.write(index_val);
+//       middle_servo.write(middle_val);
+//       ring_servo.write(ring_val);
+//       pinky_servo.write(pinky_val);
+//     }
+//   }
+// }
